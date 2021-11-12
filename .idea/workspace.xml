@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20205610-c75d-4ef6-a527-811761176cef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,9 +108,9 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="297" y="161" width="672" height="677" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1636643716930" />
-    <state x="303" y="41" width="670" height="676" key="search.everywhere.popup" timestamp="1636710025653">
+    <state x="303" y="41" width="670" height="676" key="search.everywhere.popup" timestamp="1636715100608">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="303" y="41" width="670" height="676" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" timestamp="1636710025653" />
+    <state x="303" y="41" width="670" height="676" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" timestamp="1636715100608" />
   </component>
 </project>
