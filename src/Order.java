@@ -4,16 +4,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Order {
-    private Scanner input;
     private String meat;
     private String bread;
     private HashMap<String, Integer> meats;
     private HashMap<String, Integer> extras;
     private List<String> pickedExtras;
+    private Scanner input;
 
-    public Order() {
-        input = new Scanner(System.in);
-
+    public Order(Scanner input) {
+        this.input = input;
         System.out.println("Enter Burger Meat:");
         meat = input.next();
 
@@ -39,28 +38,50 @@ public class Order {
         meats.put("tophu", 60);
     }
 
-    public boolean isValid(){
-        for(String extra : pickedExtras){
-            if(!extras.containsKey(extra)) return false;
+    public boolean isValid() {
+        for (String extra : pickedExtras) {
+            if (!extras.containsKey(extra)) return false;
         }
-        if(!bread.equals("white") && !bread.equals("whole")) return false;
-        if(!meats.containsKey(meat)) return false;
+        if (!bread.equals("white") && !bread.equals("whole")) return false;
+        if (!meats.containsKey(meat)) return false;
         return true;
     }
 
-    public int getCost(){
+    public int getCost() {
         int extraCost = 0;
-        for(String extra : pickedExtras){
+        for (String extra : pickedExtras) {
             extraCost += extras.get(extra);
         }
         return meats.get(meat) + extraCost;
     }
 
-    public void addExtra(String extra, Integer cost){
+    private void addExtra(String extra, Integer cost) {
         extras.put(extra, cost);
     }
 
-    public String toString(){
+    public void addExtra(){
+            System.out.println("Extra:");
+            String extraToAdd = input.next();
+            System.out.println("Price:");
+            Integer price = input.nextInt();
+            addExtra(extraToAdd, price);
+    }
+
+    private void updateExtra(String extra, Integer newCost) {
+        extras.replace(extra, newCost);
+    }
+
+    public void updateExtra(){
+        System.out.println("Extra:");
+        String extraToAdd = input.next();
+        System.out.println("New rice:");
+        Integer price = input.nextInt();
+        updateExtra(extraToAdd, price);
+    }
+
+
+
+    public String toString() {
         return "This hamburger order contains:\n" + meat + "\n" + bread + "\n" + Arrays.toString(pickedExtras.toArray()) + "\nCost:" + getCost();
     }
 }
