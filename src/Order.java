@@ -21,7 +21,7 @@ public class Order {
         bread = input.next();
         input.nextLine();
 
-        System.out.println("Enter Misc:");
+        System.out.println("Enter Extras:");
         String extrasRaw = input.nextLine();
         pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
     }
