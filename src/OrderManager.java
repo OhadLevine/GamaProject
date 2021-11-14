@@ -12,7 +12,10 @@ public class OrderManager {
         this.info = info;
         orders = new ArrayList<GroupOrder>();
         loop();
+        printOrders();
+    }
 
+    private void printOrders(){
         for (int i = 0; i < orders.size(); i++) {
             System.out.println("Group Order number " + (i+1) + "\n" + orders.get(i).toString() + "\n");
             for(int j = 0; j < orders.get(i).size(); j++) {

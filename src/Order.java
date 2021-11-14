@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,21 +26,33 @@ public class Order {
     }
 
     private boolean isValid() {
+        boolean extrasValid = false;
+        boolean meatsValid = false;
         for (String extra : pickedExtras) {
-            if (!info.getExtras().containsKey(extra)) return false;
+            for (int i = 0; i < info.getExtras().size(); i++) {
+                if (info.getExtras().get(i).getType().equals(extra)) extrasValid = true;
+            }
         }
         if (!bread.equals("white") && !bread.equals("whole")) return false;
-        if (!info.getMeats().containsKey(meat)) return false;
-        return true;
+        for (Food food : info.getMeats()) {
+            if (food.getType().equals(meat)) meatsValid = true;
+        }
+        return extrasValid && meatsValid;
     }
 
     public int getCost() {
-        if(isValid()) {
+        if (isValid()) {
             int extraCost = 0;
-            for (String extra : pickedExtras) {
-                extraCost += info.getExtras().get(extra);
+            int meatCost = 0;
+            for (Food extra : info.getExtras()) {
+                if (pickedExtras.contains(extra.getType())) extraCost += extra.getCost();
             }
-            return info.getMeats().get(meat) + extraCost;
+
+            for (Food meat : info.getMeats()) {
+                if (meat.getType().equals(this.meat)) meatCost = meat.getCost();
+            }
+
+            return meatCost + extraCost;
         }
         return 0;
     }

@@ -1,47 +1,48 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class OrderInformation {
     private Scanner input;
-    private HashMap<String, Integer> extras;
-    private HashMap<String, Integer> meats;
-    private HashMap<String, Integer> breads;
+
+    private List<Food> extras, meats;
 
     public OrderInformation(Scanner input) {
         this.input = input;
 
-        extras = new HashMap<String, Integer>();
-        extras.put("onion", 50);
-        extras.put("cucumber", 55);
-        extras.put("tomato", 60);
-        extras.put("lettuce", 60);
-        extras.put("pickles", 60);
+        extras = new ArrayList<Food>();
+        extras.add(new Food("onion", 50, 10));
+        extras.add(new Food("lettuce", 50, 10));
+        extras.add(new Food("tomato", 50, 10));
+        extras.add(new Food("pickle", 50, 10));
+        extras.add(new Food("cucumber", 50, 10));
 
 
-        meats = new HashMap<String, Integer>();
-        meats.put("cow", 50);
-        meats.put("lamb", 55);
-        meats.put("tophu", 60);
-
-        breads = new HashMap<String, Integer>();
-        breads.put("whole", 0);
-        breads.put("white", 0);
+        meats = new ArrayList<Food>();
+        meats.add(new Food("cow", 50, 50));
+        meats.add(new Food("lamb", 50, 50));
+        meats.add(new Food("tophu", 50, 50));
     }
 
-    private void addExtra(String extra, Integer cost) {
-        extras.put(extra, cost);
+    private void addExtra(String extra, int cost, int amount) {
+        extras.add(new Food(extra, cost, amount));
     }
 
     public void addExtra() {
         System.out.println("Extra:");
         String extraToAdd = input.next();
         System.out.println("Price:");
-        Integer price = input.nextInt();
-        addExtra(extraToAdd, price);
+        int price = input.nextInt();
+        System.out.println("Amount:");
+        int amount = input.nextInt();
+        addExtra(extraToAdd, price, amount);
     }
 
     private void updateExtra(String extra, Integer newCost) {
-        extras.replace(extra, newCost);
+        for(Food food : extras) {
+            if(food.getType().equals(extra))  food.setCost(newCost);
+        }
     }
 
     public void updateExtra() {
@@ -52,27 +53,11 @@ public class OrderInformation {
         updateExtra(extraToAdd, price);
     }
 
-    public HashMap<String, Integer> getExtras() {
+    public List<Food> getExtras() {
         return extras;
     }
 
-    public void setExtras(HashMap<String, Integer> extras) {
-        this.extras = extras;
-    }
-
-    public HashMap<String, Integer> getMeats() {
+    public List<Food> getMeats() {
         return meats;
-    }
-
-    public void setMeats(HashMap<String, Integer> meats) {
-        this.meats = meats;
-    }
-
-    public HashMap<String, Integer> getBreads() {
-        return breads;
-    }
-
-    public void setBreads(HashMap<String, Integer> breads) {
-        this.breads = breads;
     }
 }
