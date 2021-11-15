@@ -7,10 +7,9 @@ public class Order {
     private String meat;
     private String bread;
     private List<String> pickedExtras;
-    private Scanner input;
+    private int cost;
 
     public Order(Scanner input, OrderInformation info) {
-        this.input = input;
         this.info = info;
 
         System.out.println("Enter Burger Meat:");
@@ -23,38 +22,47 @@ public class Order {
         System.out.println("Enter Extras:");
         String extrasRaw = input.nextLine();
         pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
+
+        cost = Cost();
+        updateAmounts();
+    }
+
+    private void updateAmounts(){
+        if(!isValid()) return;
+        info.removeAmount(info.getMeats(), meat, 1 );
+        info.removeAmount(info.getBreads(), bread, 1);
+        for(String extra : pickedExtras){
+            info.removeAmount(info.getExtras(), extra, 1);
+        }
+
+        System.out.println();
     }
 
     private boolean isValid() {
-        boolean extrasValid = false;
-        boolean meatsValid = false;
+        Food meatFood = info.getMatchingFood(info.getMeats(), meat);
         for (String extra : pickedExtras) {
-            for (int i = 0; i < info.getExtras().size(); i++) {
-                if (info.getExtras().get(i).getType().equals(extra)) extrasValid = true;
-            }
+            Food extraFood = info.getMatchingFood(info.getExtras(), extra);
+            if(extraFood == null || extraFood.getAmount() == 0)  return false;
         }
         if (!bread.equals("white") && !bread.equals("whole")) return false;
-        for (Food food : info.getMeats()) {
-            if (food.getType().equals(meat)) meatsValid = true;
-        }
-        return extrasValid && meatsValid;
+        if((meatFood == null) || meatFood.getAmount() == 0) return false;
+        return true;
     }
 
-    public int getCost() {
+    private int Cost() {
         if (isValid()) {
             int extraCost = 0;
-            int meatCost = 0;
-            for (Food extra : info.getExtras()) {
-                if (pickedExtras.contains(extra.getType())) extraCost += extra.getCost();
+            for (String extra : pickedExtras) {
+                extraCost += info.getMatchingFood(info.getExtras(), extra).getCost();
             }
 
-            for (Food meat : info.getMeats()) {
-                if (meat.getType().equals(this.meat)) meatCost = meat.getCost();
-            }
-
-            return meatCost + extraCost;
+            return info.getMatchingFood(info.getMeats(), meat).getCost() + extraCost;
         }
         return 0;
+    }
+
+    public int getCost(){
+        return this.cost;
     }
 
     public String toString() {

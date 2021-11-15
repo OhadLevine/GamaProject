@@ -13,6 +13,7 @@ public class OrderManager {
         orders = new ArrayList<GroupOrder>();
         loop();
         printOrders();
+        System.out.println(info.printAmounts());
     }
 
     private void printOrders(){
@@ -35,6 +36,35 @@ public class OrderManager {
                     break;
                 case "update":
                     info.updateExtra();
+                    break;
+                default:
+                    editing = false;
+            }
+        }
+    }
+
+    private void worker(){
+        boolean editing = true;
+        while(editing) {
+            System.out.println("What would you like to add? (meat / bread / extra / done)");
+            String in = input.next();
+            System.out.println("How much?");
+            int amount = input.nextInt();
+            switch (in) {
+                case "meat":
+                    System.out.println("What meat should get Added?" + info.listToString(info.getMeats()));
+                    String meatToAdd = input.next();
+                    info.addAmount(info.getMeats(), meatToAdd, amount);
+                    break;
+                case "bread":
+                    System.out.println("What bread should get Added?" + info.listToString(info.getBreads()));
+                    String breadToAdd = input.next();
+                    info.addAmount(info.getMeats(), breadToAdd, amount);
+                    break;
+                case "extra":
+                    System.out.println("What extra should get Added? (" + info.listToString(info.getExtras()) + ")");
+                    String extraToAdd = input.next();
+                    info.addAmount(info.getMeats(), extraToAdd, amount);
                     break;
                 default:
                     editing = false;
@@ -68,15 +98,21 @@ public class OrderManager {
     private void loop() {
         boolean editing = true;
         while (editing) {
-            System.out.println("do you want to edit? (yes / no)");
+            System.out.println("Order Manager Worker or Done?");
             String in = input.next();
-            if(in.equals("yes")) {
-                addGroupOrder();
-                managerEditing();
-            }
-            else {
-                System.out.println("Goodbye!");
-                editing = false;
+            switch (in) {
+                case "order":
+                    addGroupOrder();
+                    break;
+                case "manager":
+                    managerEditing();
+                    break;
+                case "worker":
+                    worker();
+                    break;
+                default:
+                    System.out.println("Goodbye!");
+                    editing = false;
             }
         }
     }
