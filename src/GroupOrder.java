@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupOrder extends ArrayList<Order>{
+public class GroupOrder extends ArrayList<Order> {
     private int cost;
 
-    public GroupOrder(){
+    public GroupOrder() {
         super();
         cost = 0;
     }
 
-    public int getCost(){
-        return  cost;
+    public int getCost() {
+        return cost;
     }
 
-    public boolean add(Order order){
+    public boolean add(Order order) {
         cost += order.getCost();
         return super.add(order);
     }

@@ -16,11 +16,11 @@ public class OrderManager {
         System.out.println(info.printAmounts());
     }
 
-    private void printOrders(){
+    private void printOrders() {
         for (int i = 0; i < orders.size(); i++) {
-            System.out.println("Group Order number " + (i+1) + "\n" + orders.get(i).toString() + "\n");
-            for(int j = 0; j < orders.get(i).size(); j++) {
-                System.out.println("Order number " + (j+1) + "\n" + orders.get(i).get(j).toString() + "\n");
+            System.out.println("Group Order number " + (i + 1) + "\n" + orders.get(i).toString() + "\n");
+            for (int j = 0; j < orders.get(i).size(); j++) {
+                System.out.println("Order number " + (j + 1) + "\n" + orders.get(i).get(j).toString() + "\n");
             }
         }
     }
@@ -43,27 +43,32 @@ public class OrderManager {
         }
     }
 
-    private void worker(){
+    private void worker() {
         boolean editing = true;
-        while(editing) {
+        while (editing) {
             System.out.println("What would you like to add? (meat / bread / extra / done)");
             String in = input.next();
-            System.out.println("How much?");
-            int amount = input.nextInt();
+            int amount;
             switch (in) {
                 case "meat":
                     System.out.println("What meat should get Added?" + info.listToString(info.getMeats()));
                     String meatToAdd = input.next();
+                    System.out.println("How much?");
+                    amount = input.nextInt();
                     info.addAmount(info.getMeats(), meatToAdd, amount);
                     break;
                 case "bread":
                     System.out.println("What bread should get Added?" + info.listToString(info.getBreads()));
                     String breadToAdd = input.next();
+                    System.out.println("How much?");
+                    amount = input.nextInt();
                     info.addAmount(info.getMeats(), breadToAdd, amount);
                     break;
                 case "extra":
                     System.out.println("What extra should get Added? (" + info.listToString(info.getExtras()) + ")");
                     String extraToAdd = input.next();
+                    System.out.println("How much?");
+                    amount = input.nextInt();
                     info.addAmount(info.getMeats(), extraToAdd, amount);
                     break;
                 default:
@@ -77,21 +82,20 @@ public class OrderManager {
         while (editing) {
             System.out.println("Do you want to add new order? (yes / no)");
             String in = input.next();
-            if(in.equals("yes")) orders.get(orders.size() - 1).add(new Order(input, info));
+            if (in.equals("yes")) orders.get(orders.size() - 1).add(new Order(input, info));
             else editing = false;
         }
     }
 
-    private void addGroupOrder(){
+    private void addGroupOrder() {
         boolean editing = true;
         while (editing) {
             System.out.println("Do you want to add new group order? (yes / no)");
             String in = input.next();
-            if(in.equals("yes")) {
+            if (in.equals("yes")) {
                 orders.add(new GroupOrder());
                 addOrder();
-            }
-            else editing = false;
+            } else editing = false;
         }
     }
 

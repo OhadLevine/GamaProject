@@ -12,21 +12,21 @@ public class OrderInformation {
         this.input = input;
 
         extras = new ArrayList<Food>();
-        extras.add(new Food("onion", 50, 3));
-        extras.add(new Food("lettuce", 50, 3));
-        extras.add(new Food("tomato", 50, 3));
-        extras.add(new Food("pickle", 50, 3));
-        extras.add(new Food("cucumber", 50, 3));
+        extras.add(new Food("onion", 50, 1));
+        extras.add(new Food("lettuce", 50, 1));
+        extras.add(new Food("tomato", 50, 1));
+        extras.add(new Food("pickle", 50, 1));
+        extras.add(new Food("cucumber", 50, 1));
 
 
         meats = new ArrayList<Food>();
-        meats.add(new Food("cow", 50, 3));
-        meats.add(new Food("lamb", 50, 3));
-        meats.add(new Food("tophu", 50, 3));
+        meats.add(new Food("cow", 50, 1));
+        meats.add(new Food("lamb", 50, 1));
+        meats.add(new Food("tophu", 50, 1));
 
         breads = new ArrayList<Food>();
-        breads.add(new Food("whole", 0, 3));
-        breads.add(new Food("white", 0, 3));
+        breads.add(new Food("whole", 0, 1));
+        breads.add(new Food("white", 0, 1));
 
     }
 
@@ -35,7 +35,7 @@ public class OrderInformation {
         food.setAmount(food.getAmount() + amount);
     }
 
-    public void removeAmount(List<Food> list, String foodToRemoveFrom, int amount){
+    public void removeAmount(List<Food> list, String foodToRemoveFrom, int amount) {
         addAmount(list, foodToRemoveFrom, -amount);
     }
 
@@ -52,7 +52,7 @@ public class OrderInformation {
 
     public String listToString(List<Food> list) {
         String str = "";
-        for(Food food : list){
+        for (Food food : list) {
             str += food.getType() + " ";
         }
         return str;
@@ -80,9 +80,18 @@ public class OrderInformation {
         updateExtra(extraToAdd, price);
     }
 
-    public String printAmounts(){
+    public String printAmounts() {
         String str = "";
-        for(Food food : meats) {
+        str += "meats: \n\n";
+        for (Food food : meats) {
+            str += food.getType() + ":" + food.getAmount() + "\n";
+        }
+        str += "bread: \n\n";
+        for (Food food : breads) {
+            str += food.getType() + ":" + food.getAmount() + "\n";
+        }
+        str += "extras: \n\n";
+        for (Food food : extras) {
             str += food.getType() + ":" + food.getAmount() + "\n";
         }
         return str;
