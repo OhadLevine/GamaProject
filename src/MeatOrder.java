@@ -15,17 +15,18 @@ public class MeatOrder extends Order{
             this.pickedExtras.add(info.getMatchingFood(info.getExtras(), extra));
         }
 
-        cost = cost();
         valid = isValid();
+        cost = cost();
         updateAmounts();
     }
 
     private void updateAmounts() {
-        if (!valid) return;
-        meat.setAmount(meat.getAmount() - 1);
-        bread.setAmount(bread.getAmount() - 1);
-        for (Food extra : pickedExtras) {
-            extra.setAmount(extra.getAmount() - 1);
+        if(valid) {
+            meat.setAmount(meat.getAmount() - 1);
+            bread.setAmount(bread.getAmount() - 1);
+            for (Food extra : pickedExtras) {
+                extra.setAmount(extra.getAmount() - 1);
+            }
         }
     }
 
@@ -54,6 +55,6 @@ public class MeatOrder extends Order{
     }
 
     public String toString() {
-        return "This hamburger order contains:\n" + meat.getType() + "\n" + bread.getType() + "\n" + Util.listToString(pickedExtras) + "\nCost:" + getCost() + "\nIs Valid:" + isValid();
+        return "This hamburger order contains:\n" + meat.getType() + "\n" + bread.getType() + "\n" + Util.listToString(pickedExtras) + "\nCost:" + cost + "\nIs Valid:" + valid;
     }
 }
