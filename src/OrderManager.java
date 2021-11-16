@@ -62,14 +62,14 @@ public class OrderManager {
                     String breadToAdd = input.next();
                     System.out.println("How much?");
                     amount = input.nextInt();
-                    info.addAmount(info.getMeats(), breadToAdd, amount);
+                    info.addAmount(info.getBreads(), breadToAdd, amount);
                     break;
                 case "extra":
                     System.out.println("What extra should get Added? (" + info.listToString(info.getExtras()) + ")");
                     String extraToAdd = input.next();
                     System.out.println("How much?");
                     amount = input.nextInt();
-                    info.addAmount(info.getMeats(), extraToAdd, amount);
+                    info.addAmount(info.getExtras(), extraToAdd, amount);
                     break;
                 default:
                     editing = false;

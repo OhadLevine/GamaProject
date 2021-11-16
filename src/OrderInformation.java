@@ -32,7 +32,7 @@ public class OrderInformation {
 
     public void addAmount(List<Food> list, String foodToAddTo, int amount) {
         Food food = getMatchingFood(list, foodToAddTo);
-        food.setAmount(food.getAmount() + amount);
+        if(food != null) food.setAmount(food.getAmount() + amount);
     }
 
     public void removeAmount(List<Food> list, String foodToRemoveFrom, int amount) {

@@ -24,7 +24,7 @@ public class Order {
         String extrasRaw = input.nextLine();
         pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
 
-        cost = Cost();
+        cost = cost();
         valid = isValid();
         updateAmounts();
     }
@@ -52,8 +52,8 @@ public class Order {
         return true;
     }
 
-    private int Cost() {
-        if (!valid) {
+    private int cost() {
+        if (valid) {
             int extraCost = 0;
             for (String extra : pickedExtras) {
                 extraCost += info.getMatchingFood(info.getExtras(), extra).getCost();
