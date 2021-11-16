@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class OrderManager {
         orders = new ArrayList<GroupOrder>();
         loop();
         printOrders();
-        System.out.println(info.printAmounts());
+        System.out.println(info.getAmounts());
     }
 
     private void printOrders() {
@@ -25,17 +26,28 @@ public class OrderManager {
         }
     }
 
-    private void managerEditing() {
+    private void manager() {
         boolean editing = true;
         while (editing) {
             System.out.println("Do you want to edit extras? (add / update / no)");
             String in = input.next();
+            int price;
             switch (in) {
                 case "add":
-                    info.addExtra();
+                    System.out.println("Extra:");
+                    String extraToAdd = input.next();
+                    System.out.println("Price:");
+                    price = input.nextInt();
+                    System.out.println("Amount:");
+                    int amount = input.nextInt();
+                    info.addExtra(extraToAdd, price, amount);
                     break;
                 case "update":
-                    info.updateExtra();
+                    System.out.println("Extra:");
+                    String extraToUpdate = input.next();
+                    System.out.println("New Price:");
+                    price = input.nextInt();
+                    info.updateExtra(extraToUpdate, price);
                     break;
                 default:
                     editing = false;
@@ -51,21 +63,21 @@ public class OrderManager {
             int amount;
             switch (in) {
                 case "meat":
-                    System.out.println("What meat should get Added?" + info.listToString(info.getMeats()));
+                    System.out.println("What meat should get Added?" + Util.listToString(info.getMeats()));
                     String meatToAdd = input.next();
                     System.out.println("How much?");
                     amount = input.nextInt();
                     info.addAmount(info.getMeats(), meatToAdd, amount);
                     break;
                 case "bread":
-                    System.out.println("What bread should get Added?" + info.listToString(info.getBreads()));
+                    System.out.println("What bread should get Added?" + Util.listToString(info.getBreads()));
                     String breadToAdd = input.next();
                     System.out.println("How much?");
                     amount = input.nextInt();
                     info.addAmount(info.getBreads(), breadToAdd, amount);
                     break;
                 case "extra":
-                    System.out.println("What extra should get Added? (" + info.listToString(info.getExtras()) + ")");
+                    System.out.println("What extra should get Added? (" + Util.listToString(info.getExtras()) + ")");
                     String extraToAdd = input.next();
                     System.out.println("How much?");
                     amount = input.nextInt();
@@ -82,7 +94,19 @@ public class OrderManager {
         while (editing) {
             System.out.println("Do you want to add new order? (yes / no)");
             String in = input.next();
-            if (in.equals("yes")) orders.get(orders.size() - 1).add(new Order(input, info));
+            if (in.equals("yes")) {
+                System.out.println("Enter Burger Meat:");
+                String meat = input.next();
+
+                System.out.println("Enter Burger Bread:");
+                String bread = input.next();
+                input.nextLine();
+
+                System.out.println("Enter Extras:");
+                String extrasRaw = input.nextLine();
+                List<String> pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
+                orders.get(orders.size() - 1).add(new MeatOrder(info, meat, bread, pickedExtras));
+            }
             else editing = false;
         }
     }
@@ -109,7 +133,7 @@ public class OrderManager {
                     addGroupOrder();
                     break;
                 case "manager":
-                    managerEditing();
+                    manager();
                     break;
                 case "worker":
                     worker();

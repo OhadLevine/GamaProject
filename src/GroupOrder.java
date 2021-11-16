@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class GroupOrder extends ArrayList<Order> {
     private int cost;

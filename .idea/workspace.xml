@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20205610-c75d-4ef6-a527-811761176cef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MeatOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SaladOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/GroupOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/GroupOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/OrderInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/OrderInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/OrderManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/OrderManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OrderInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderManager.java" afterDir="false" />
@@ -36,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -86,22 +96,30 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1636901620751" />
-    <state width="1237" height="181" key="GridCell.Tab.0.bottom" timestamp="1637055161835">
+    <state x="438" y="247" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1637057343520">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1637055161835" />
-    <state width="1237" height="181" key="GridCell.Tab.0.center" timestamp="1637055161835">
+    <state x="438" y="247" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.720@0.0.1280.720" timestamp="1637057343520" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1637057021686">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1637055161835" />
-    <state width="1237" height="181" key="GridCell.Tab.0.left" timestamp="1637055161835">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.720@0.0.1280.720" timestamp="1637057021686" />
+    <state width="1237" height="116" key="GridCell.Tab.0.bottom" timestamp="1637065002900">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1637055161835" />
-    <state width="1237" height="181" key="GridCell.Tab.0.right" timestamp="1637055161835">
+    <state width="1237" height="116" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1637065002900" />
+    <state width="1237" height="116" key="GridCell.Tab.0.center" timestamp="1637065002900">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="181" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1637055161835" />
+    <state width="1237" height="116" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1637065002900" />
+    <state width="1237" height="116" key="GridCell.Tab.0.left" timestamp="1637065002900">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="116" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1637065002900" />
+    <state width="1237" height="116" key="GridCell.Tab.0.right" timestamp="1637065002900">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="116" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1637065002900" />
     <state x="142" y="4" key="SettingsEditor" timestamp="1636645736407">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -110,10 +128,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="337" y="186" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1636876536603" />
-    <state x="297" y="161" width="672" height="677" key="run.anything.popup" timestamp="1636643716930">
+    <state x="297" y="161" width="672" height="677" key="run.anything.popup" timestamp="1637064765163">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="297" y="161" width="672" height="677" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1636643716930" />
+    <state x="297" y="161" width="672" height="677" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1637064765163" />
     <state x="303" y="41" width="670" height="676" key="search.everywhere.popup" timestamp="1636715100608">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
