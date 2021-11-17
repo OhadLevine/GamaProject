@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class OrderInformation {
     private List<Food> extras, meats, breads, salads;
+    private List<Worker> workers;
     private GenericMeal hamburger;
 
     public OrderInformation(Scanner input) {
@@ -29,10 +30,14 @@ public class OrderInformation {
         breads.add(new Food("white", 0, 1));
 
         salads = new ArrayList<Food>();
-        salads.add(new Food("big", 50, 2));
-        salads.add(new Food("medium", 40, 2));
-        salads.add(new Food("small", 30, 2));
+        salads.add(new Food("b", 50, 2));
+        salads.add(new Food("m", 40, 2));
+        salads.add(new Food("s", 30, 2));
 
+        workers = new ArrayList<Worker>();
+        workers.add(new Worker(50, "Jacob"));
+        workers.add(new Worker(50, "Jerry"));
+        workers.add(new Worker(50, "Jackqueline"));
     }
 
 
@@ -66,5 +71,9 @@ public class OrderInformation {
 
     public List<Food> getSalads() {
         return salads;
+    }
+
+    public List<Worker> getWorkers() {
+        return workers;
     }
 }

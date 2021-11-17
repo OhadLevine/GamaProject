@@ -7,7 +7,7 @@ public class Order {
         this.meal = meal;
         this.worker = worker;
 
-        worker.setTips(worker.getTips() + workerTip);
+        if(meal.isValid()) worker.setTips(worker.getTips() + workerTip);
     }
 
     public int getCost() {
@@ -15,6 +15,6 @@ public class Order {
     }
 
     public String toString() {
-        return meal.toString();
+        return meal.toString() + "\n" + worker.toString();
     }
 }

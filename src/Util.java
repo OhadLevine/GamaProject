@@ -11,6 +11,13 @@ public class Util {
         return null;
     }
 
+    public static Worker findWorkerByName(List<Worker> list, String name){
+        for(Worker worker : list){
+            if(worker.getName().equals(name)) return worker;
+        }
+        return null;
+    }
+
     public static String getStringAmounts(List<Food>... lists) {
         String str = "";
         for (List<Food> list : lists) {

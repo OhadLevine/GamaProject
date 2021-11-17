@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class OrderManager {
     private Scanner input;
@@ -13,18 +11,20 @@ public class OrderManager {
         this.info = info;
         orders = new ArrayList<GroupOrder>();
         loop();
-        Util.printOrders(orders);
-        System.out.println(Util.getStringAmounts(info.getMeats(), info.getBreads(), info.getExtras(), info.getSalads()));
     }
 
-    private void manager() {
+    public List<GroupOrder> getOrders() {
+        return orders;
+    }
+
+    private void managerEditingExtras() {
         boolean editing = true;
         while (editing) {
-            System.out.println("Do you want to edit extras? (add / update / no)");
+            System.out.println("Edit extras? (a - add / u - update / no)");
             String in = input.next();
             int price;
             switch (in) {
-                case "add":
+                case "a":
                     System.out.println("Extra:");
                     String extraToAdd = input.next();
                     System.out.println("Price:");
@@ -33,7 +33,7 @@ public class OrderManager {
                     int amount = input.nextInt();
                     info.addExtra(extraToAdd, price, amount);
                     break;
-                case "update":
+                case "u":
                     System.out.println("Extra:");
                     String extraToUpdate = input.next();
                     System.out.println("New Price:");
@@ -46,28 +46,58 @@ public class OrderManager {
         }
     }
 
+    private void manager() {
+        boolean editing = true;
+        while (editing) {
+            System.out.println("Payday Edit Hire or Fire? (p - payday / e - edit / h - hire / f - fire)");
+            String in = input.next();
+            switch (in) {
+                case "p":
+                    for (Worker worker : info.getWorkers()) {
+                        worker.raiseMonthlySalary();
+                    }
+                    break;
+                case "e":
+                    managerEditingExtras();
+                    break;
+                case "h":
+                    System.out.println("Worker name: ");
+                    in = input.next();
+                    info.getWorkers().add(new Worker(50, in));
+                    break;
+                case "f":
+                    System.out.println("Worker name: ");
+                    in = input.next();
+                    info.getWorkers().remove(Util.findWorkerByName(info.getWorkers(), in));
+                    break;
+                default:
+                    editing = false;
+            }
+        }
+    }
+
     private void worker() {
         boolean editing = true;
         while (editing) {
-            System.out.println("What would you like to add? (meat / bread / extra / done)");
+            System.out.println("What  to add? (m - meat / b - bread / e - extra / done)");
             String in = input.next();
             int amount;
             switch (in) {
-                case "meat":
+                case "m":
                     System.out.println("What meat should get Added?" + Util.listToString(info.getMeats()));
                     String meatToAdd = input.next();
                     System.out.println("How much?");
                     amount = input.nextInt();
                     info.addAmount(info.getMeats(), meatToAdd, amount);
                     break;
-                case "bread":
+                case "b":
                     System.out.println("What bread should get Added?" + Util.listToString(info.getBreads()));
                     String breadToAdd = input.next();
                     System.out.println("How much?");
                     amount = input.nextInt();
                     info.addAmount(info.getBreads(), breadToAdd, amount);
                     break;
-                case "extra":
+                case "e":
                     System.out.println("What extra should get Added? (" + Util.listToString(info.getExtras()) + ")");
                     String extraToAdd = input.next();
                     System.out.println("How much?");
@@ -101,17 +131,17 @@ public class OrderManager {
                     extrasRaw = input.nextLine();
                     pickedExtras = Util.stringListToFood(info.getExtras(), Arrays.asList(extrasRaw.split("\\W+")));
 
-                    orders.get(orders.size() - 1).add(new Order(new GenericMeal(pickedExtras, meat, bread), new Worker(60, "ahmed")));
+                    orders.get(orders.size() - 1).add(new Order(new GenericMeal(pickedExtras, meat, bread), info.getWorkers().get(ThreadLocalRandom.current().nextInt(0, info.getWorkers().size()))));
                     break;
                 case "s":
-                    System.out.println("Enter Salad size");
+                    System.out.println("Enter Salad size (s - small | m - medium | b - big");
                     Food salad = Util.getMatchingFood(info.getSalads(), input.next());
                     input.nextLine();
 
                     System.out.println("Enter Extras:");
                     extrasRaw = input.nextLine();
                     pickedExtras = Util.stringListToFood(info.getExtras(), Arrays.asList(extrasRaw.split("\\W+")));
-                    orders.get(orders.size() - 1).add(new Order(new Salad(salad, pickedExtras), new Worker(5, "bruh")));
+                    orders.get(orders.size() - 1).add(new Order(new Salad(salad, pickedExtras), info.getWorkers().get(ThreadLocalRandom.current().nextInt(0, info.getWorkers().size()))));
                     break;
                 default:
                     editing = false;
@@ -124,9 +154,9 @@ public class OrderManager {
     private void addGroupOrder() {
         boolean editing = true;
         while (editing) {
-            System.out.println("Do you want to add new group order? (yes / no)");
+            System.out.println("Do you want to add new group order? (y / n)");
             String in = input.next();
-            if (in.equals("yes")) {
+            if (in.equals("y")) {
                 orders.add(new GroupOrder());
                 addOrder();
             } else editing = false;

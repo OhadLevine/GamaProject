@@ -1,12 +1,11 @@
 public class Worker {
     private String name;
-    private int salary, tips;
+    private int salary, tips = 0;
     private int monthlySalaryRaise = 10;
 
     public Worker(int salary, String name) {
         this.name = name;
         this.salary = salary;
-        tips = 0;
     }
 
     public String getName() {
