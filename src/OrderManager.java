@@ -14,7 +14,7 @@ public class OrderManager {
         orders = new ArrayList<GroupOrder>();
         loop();
         printOrders();
-        System.out.println(info.getAmounts());
+        System.out.println(info.getStringAmounts(info.getMeats(), info.getBreads(), info.getExtras(), info.getSalads()));
     }
 
     private void printOrders() {

@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OrderInformation {
-    private List<Food> extras, meats, breads;
+    private List<Food> extras, meats, breads, salads;
 
     public OrderInformation(Scanner input) {
         createFoods();
@@ -26,6 +26,12 @@ public class OrderInformation {
         breads = new ArrayList<Food>();
         breads.add(new Food("whole", 0, 1));
         breads.add(new Food("white", 0, 1));
+
+        salads = new ArrayList<Food>();
+        salads.add(new Food("big", 50, 2));
+        salads.add(new Food("medium", 40, 2));
+        salads.add(new Food("small", 30, 2));
+
     }
 
     public Food getMatchingFood(List<Food> list, String foodToFind) {
@@ -51,6 +57,17 @@ public class OrderInformation {
 
     public void updateExtra(String extra, Integer newCost) {
         getMatchingFood(extras, extra).setCost(newCost);
+    }
+
+    public String getStringAmounts(List<Food>... lists){
+        String str = "";
+        for(List<Food> list: lists) {
+            str += "\n\n";
+            for(Food food : list) {
+                str += food.getType() + ":" + food.getAmount() + "\n";
+            }
+        }
+        return str;
     }
 
     public String getAmounts() {
@@ -80,5 +97,10 @@ public class OrderInformation {
 
     public List<Food> getBreads() {
         return breads;
+    }
+
+
+    public List<Food> getSalads() {
+        return salads;
     }
 }
