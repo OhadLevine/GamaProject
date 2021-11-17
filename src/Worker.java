@@ -29,7 +29,7 @@ public class Worker {
         this.tips = tips;
     }
 
-    public void raiseMonthlySalary(){
+    public void raiseMonthlySalary() {
         salary += monthlySalaryRaise + tips;
         tips = 0;
     }

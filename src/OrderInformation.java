@@ -36,10 +36,9 @@ public class OrderInformation {
     }
 
 
-
     public void addAmount(List<Food> list, String foodToAddTo, int amount) {
         Food food = Util.getMatchingFood(list, foodToAddTo);
-        if(food != null) food.setAmount(food.getAmount() + amount);
+        if (food != null) food.setAmount(food.getAmount() + amount);
     }
 
 
@@ -50,7 +49,6 @@ public class OrderInformation {
     public void updateExtra(String extra, Integer newCost) {
         Util.getMatchingFood(extras, extra).setCost(newCost);
     }
-
 
 
     public List<Food> getExtras() {

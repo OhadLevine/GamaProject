@@ -19,6 +19,7 @@ public class Salad extends GenericMeal {
 
     @Override
     public int getCost() {
+        if (!valid) return 0;
         return salad.getCost();
     }
 }

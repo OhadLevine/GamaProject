@@ -87,7 +87,7 @@ public class OrderManager {
         while (editing) {
             System.out.println("Hamburger Salad or Done? (h / s / d)");
             String in = input.next();
-            switch (in){
+            switch (in) {
                 case "h":
                     System.out.println("Enter Burger Meat:");
                     Food meat = Util.getMatchingFood(info.getMeats(), input.next());

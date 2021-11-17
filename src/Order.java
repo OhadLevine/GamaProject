@@ -1,4 +1,4 @@
-public class Order{
+public class Order {
     private Meal meal;
     private Worker worker;
     private int workerTip = 10;
@@ -10,11 +10,11 @@ public class Order{
         worker.setTips(worker.getTips() + workerTip);
     }
 
-    public int getCost(){
+    public int getCost() {
         return meal.getCost();
     }
 
     public String toString() {
-        return  meal.toString();
+        return meal.toString();
     }
 }

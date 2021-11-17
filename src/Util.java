@@ -11,11 +11,11 @@ public class Util {
         return null;
     }
 
-    public static String getStringAmounts(List<Food>... lists){
+    public static String getStringAmounts(List<Food>... lists) {
         String str = "";
-        for(List<Food> list: lists) {
+        for (List<Food> list : lists) {
             str += "\n\n";
-            for(Food food : list) {
+            for (Food food : list) {
                 str += food.getType() + ":" + food.getAmount() + "\n";
             }
         }
@@ -40,9 +40,9 @@ public class Util {
         }
     }
 
-    public static List<Food> stringListToFood(List<Food> foodList, List<String> list){
+    public static List<Food> stringListToFood(List<Food> foodList, List<String> list) {
         List<Food> newList = new ArrayList<Food>();
-        for(String food : list){
+        for (String food : list) {
             newList.add(getMatchingFood(foodList, food));
         }
         return newList;
