@@ -47,9 +47,6 @@ public class OrderInformation {
         if(food != null) food.setAmount(food.getAmount() + amount);
     }
 
-    public void removeAmount(List<Food> list, String foodToRemoveFrom, int amount) {
-        addAmount(list, foodToRemoveFrom, -amount);
-    }
 
     public void addExtra(String extra, int cost, int amount) {
         extras.add(new Food(extra, cost, amount));
