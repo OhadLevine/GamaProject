@@ -7,7 +7,7 @@ public class SaladOrder extends Order {
     private boolean valid;
     private int cost;
 
-    public SaladOrder(OrderInformation info, List<String> pickedExtras, String size) {
+    public SaladOrder(OrderInformation info, String size, List<String> pickedExtras) {
         salad = info.getMatchingFood(info.getSalads(), size);
 
         this.pickedExtras = new ArrayList<Food>();
@@ -17,6 +17,7 @@ public class SaladOrder extends Order {
 
         valid = isValid();
         cost = cost();
+        removeAmounts();
     }
 
     private void removeAmounts() {
@@ -24,6 +25,7 @@ public class SaladOrder extends Order {
             for (Food extra : pickedExtras) {
                 extra.setAmount(extra.getAmount() - 1);
             }
+            salad.setAmount(salad.getAmount() - 1);
         }
     }
 
@@ -36,6 +38,10 @@ public class SaladOrder extends Order {
             if (extra == null || extra.getAmount() == 0) return false;
         }
         return true;
+    }
+
+    public int getCost(){
+        return this.cost;
     }
 
     public String toString() {

@@ -91,23 +91,40 @@ public class OrderManager {
 
     private void addOrder() {
         boolean editing = true;
+        String extrasRaw;
+        List<String> pickedExtras;
         while (editing) {
-            System.out.println("Do you want to add new order? (yes / no)");
+            System.out.println("Hamburger Salad or Done? (h / s / d)");
             String in = input.next();
-            if (in.equals("yes")) {
-                System.out.println("Enter Burger Meat:");
-                String meat = input.next();
+            switch (in){
+                case "h":
+                    System.out.println("Enter Burger Meat:");
+                    String meat = input.next();
 
-                System.out.println("Enter Burger Bread:");
-                String bread = input.next();
-                input.nextLine();
+                    System.out.println("Enter Burger Bread:");
+                    String bread = input.next();
+                    input.nextLine();
 
-                System.out.println("Enter Extras:");
-                String extrasRaw = input.nextLine();
-                List<String> pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
-                orders.get(orders.size() - 1).add(new MeatOrder(info, meat, bread, pickedExtras));
+                    System.out.println("Enter Extras:");
+                    extrasRaw = input.nextLine();
+                    pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
+                    orders.get(orders.size() - 1).add(new MeatOrder(info, meat, bread, pickedExtras));
+                    break;
+                case "s":
+                    System.out.println("Enter Salad size");
+                    String size = input.next();
+                    input.nextLine();
+
+                    System.out.println("Enter Extras:");
+                    extrasRaw = input.nextLine();
+                    pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
+                    orders.get(orders.size() - 1).add(new SaladOrder(info, size, pickedExtras));
+                    break;
+                default:
+                    editing = false;
+
+
             }
-            else editing = false;
         }
     }
 
