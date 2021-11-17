@@ -3,8 +3,8 @@ import java.util.List;
 
 public class GenericMeal implements Meal {
     private List<Food> list;
-    private boolean valid;
-    private int cost;
+    protected boolean valid = true;
+    protected int cost = 0;
 
     private static List<Food> createList(List<Food> list, Food... foodList) {
         List<Food> newList = new ArrayList<Food>(list);
@@ -16,8 +16,17 @@ public class GenericMeal implements Meal {
 
     public GenericMeal(List<Food> list) {
         this.list = list;
-        valid = isValid();
-        cost = getCost();
+
+        for (Food food : list) {
+            if (food == null || food.getAmount() == 0) valid = false;
+        }
+
+        if (valid) {
+            for (Food food : list) {
+                cost += food.getCost();
+            }
+        }
+
         subtractUsedFoods();
     }
 
@@ -37,29 +46,20 @@ public class GenericMeal implements Meal {
 
     @Override
     public boolean isValid() {
-        for (Food food : list) {
-            if (food == null || food.getAmount() == 0) return false;
-        }
-        return true;
+        return valid;
     }
 
     @Override
     public int getCost() {
-        if (valid) {
-            int cost = 0;
-            for (Food food : list) {
-                cost += food.getCost();
-            }
-            return cost;
-        }
-        return 0;
+        return cost;
     }
 
+    @Override
     public String toString() {
         String str = "This meal contains: ";
         for (Food food : list) {
-            str += food.getType() + " | ";
+            if(food != null) str += food.getType() + " | ";
         }
-        return str + cost + valid;
+        return str + cost + " | " + valid;
     }
 }

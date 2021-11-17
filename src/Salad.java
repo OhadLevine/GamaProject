@@ -11,15 +11,14 @@ public class Salad extends GenericMeal {
         super(pickedExtras, salad);
         this.salad = salad;
         this.pickedExtras = pickedExtras;
-
-        valid = isValid();
-        cost = getCost();
-        subtractUsedFoods();
+        super.cost = getCost();
     }
 
     @Override
     public int getCost() {
-        if (!valid) return 0;
-        return salad.getCost();
+        if (isValid()) {
+            return salad.getCost();
+        }
+        return 0;
     }
 }
