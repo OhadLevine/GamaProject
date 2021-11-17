@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20205610-c75d-4ef6-a527-811761176cef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GenericMeal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/MeatOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/OrderInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/OrderInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/OrderManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/OrderManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gamaProject/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gamaProject/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeatOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OrderInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SaladOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Salad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,10 +94,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="96" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1636643676554" />
-    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1637154619938">
+    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1637156946401">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1637154619938" />
+    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1637156946401" />
     <state x="438" y="247" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1637057343520">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -94,22 +106,22 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.720@0.0.1280.720" timestamp="1637057021686" />
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom" timestamp="1637145388893">
+    <state width="1237" height="142" key="GridCell.Tab.0.bottom" timestamp="1637161896705">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1637145388893" />
-    <state width="1237" height="172" key="GridCell.Tab.0.center" timestamp="1637145388892">
+    <state width="1237" height="142" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1637161896705" />
+    <state width="1237" height="142" key="GridCell.Tab.0.center" timestamp="1637161896705">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1637145388892" />
-    <state width="1237" height="172" key="GridCell.Tab.0.left" timestamp="1637145388892">
+    <state width="1237" height="142" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1637161896705" />
+    <state width="1237" height="142" key="GridCell.Tab.0.left" timestamp="1637161896705">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1637145388892" />
-    <state width="1237" height="172" key="GridCell.Tab.0.right" timestamp="1637145388892">
+    <state width="1237" height="142" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1637161896705" />
+    <state width="1237" height="142" key="GridCell.Tab.0.right" timestamp="1637161896705">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1637145388892" />
+    <state width="1237" height="142" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1637161896705" />
     <state x="142" y="4" key="SettingsEditor" timestamp="1636645736407">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -122,10 +134,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="334" y="92" width="612" height="536" key="find.popup/0.0.1280.720@0.0.1280.720" timestamp="1637144032737" />
-    <state x="297" y="161" width="672" height="677" key="run.anything.popup" timestamp="1637064765163">
+    <state x="297" y="161" width="672" height="677" key="run.anything.popup" timestamp="1637161679465">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="297" y="161" width="672" height="677" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1637064765163" />
+    <state x="297" y="161" width="672" height="677" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1637161679465" />
     <state x="303" y="41" width="672" height="676" key="search.everywhere.popup" timestamp="1637143464442">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

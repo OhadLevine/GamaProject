@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class OrderInformation {
     private List<Food> extras, meats, breads, salads;
+    private GenericMeal hamburger;
 
     public OrderInformation(Scanner input) {
         createFoods();
@@ -34,16 +35,10 @@ public class OrderInformation {
 
     }
 
-    public Food getMatchingFood(List<Food> list, String foodToFind) {
-        for (Food food : list) {
-            if (food.getType().equals(foodToFind)) return food;
-        }
-        return null;
-    }
 
 
     public void addAmount(List<Food> list, String foodToAddTo, int amount) {
-        Food food = getMatchingFood(list, foodToAddTo);
+        Food food = Util.getMatchingFood(list, foodToAddTo);
         if(food != null) food.setAmount(food.getAmount() + amount);
     }
 
@@ -53,36 +48,10 @@ public class OrderInformation {
     }
 
     public void updateExtra(String extra, Integer newCost) {
-        getMatchingFood(extras, extra).setCost(newCost);
+        Util.getMatchingFood(extras, extra).setCost(newCost);
     }
 
-    public String getStringAmounts(List<Food>... lists){
-        String str = "";
-        for(List<Food> list: lists) {
-            str += "\n\n";
-            for(Food food : list) {
-                str += food.getType() + ":" + food.getAmount() + "\n";
-            }
-        }
-        return str;
-    }
 
-    public String getAmounts() {
-        String str = "";
-        str += "\n meats: \n\n";
-        for (Food food : meats) {
-            str += food.getType() + ":" + food.getAmount() + "\n";
-        }
-        str += "\n bread: \n\n";
-        for (Food food : breads) {
-            str += food.getType() + ":" + food.getAmount() + "\n";
-        }
-        str += "\n extras: \n\n";
-        for (Food food : extras) {
-            str += food.getType() + ":" + food.getAmount() + "\n";
-        }
-        return str;
-    }
 
     public List<Food> getExtras() {
         return extras;

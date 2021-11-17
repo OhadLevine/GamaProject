@@ -1,16 +1,20 @@
-public class Order {
-    protected boolean valid;
-    protected int cost;
+public class Order{
+    private Meal meal;
+    private Worker worker;
+    private int workerTip = 10;
 
-    public boolean isValid() {
-        return valid;
+    public Order(Meal meal, Worker worker) {
+        this.meal = meal;
+        this.worker = worker;
+
+        worker.setTips(worker.getTips() + workerTip);
     }
 
     public int getCost(){
-        return cost;
+        return meal.getCost();
     }
 
-    public String toString(){
-        return "Is valid: " + isValid() + "\n Cost: " + getCost();
+    public String toString() {
+        return  meal.toString();
     }
 }

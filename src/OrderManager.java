@@ -13,17 +13,8 @@ public class OrderManager {
         this.info = info;
         orders = new ArrayList<GroupOrder>();
         loop();
-        printOrders();
-        System.out.println(info.getStringAmounts(info.getMeats(), info.getBreads(), info.getExtras(), info.getSalads()));
-    }
-
-    private void printOrders() {
-        for (int i = 0; i < orders.size(); i++) {
-            System.out.println("Group Order number " + (i + 1) + "\n" + orders.get(i).toString() + "\n");
-            for (int j = 0; j < orders.get(i).size(); j++) {
-                System.out.println("Order number " + (j + 1) + "\n" + orders.get(i).get(j).toString() + "\n");
-            }
-        }
+        Util.printOrders(orders);
+        System.out.println(Util.getStringAmounts(info.getMeats(), info.getBreads(), info.getExtras(), info.getSalads()));
     }
 
     private void manager() {
@@ -92,33 +83,35 @@ public class OrderManager {
     private void addOrder() {
         boolean editing = true;
         String extrasRaw;
-        List<String> pickedExtras;
+        List<Food> pickedExtras;
         while (editing) {
             System.out.println("Hamburger Salad or Done? (h / s / d)");
             String in = input.next();
             switch (in){
                 case "h":
                     System.out.println("Enter Burger Meat:");
-                    String meat = input.next();
+                    Food meat = Util.getMatchingFood(info.getMeats(), input.next());
 
                     System.out.println("Enter Burger Bread:");
-                    String bread = input.next();
+                    Food bread = Util.getMatchingFood(info.getBreads(), input.next());
+
                     input.nextLine();
 
                     System.out.println("Enter Extras:");
                     extrasRaw = input.nextLine();
-                    pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
-                    orders.get(orders.size() - 1).add(new MeatOrder(info, meat, bread, pickedExtras));
+                    pickedExtras = Util.stringListToFood(info.getExtras(), Arrays.asList(extrasRaw.split("\\W+")));
+
+                    orders.get(orders.size() - 1).add(new Order(new GenericMeal(pickedExtras, meat, bread), new Worker(60, "ahmed")));
                     break;
                 case "s":
                     System.out.println("Enter Salad size");
-                    String size = input.next();
+                    Food salad = Util.getMatchingFood(info.getSalads(), input.next());
                     input.nextLine();
 
                     System.out.println("Enter Extras:");
                     extrasRaw = input.nextLine();
-                    pickedExtras = Arrays.asList(extrasRaw.split("\\W+"));
-                    orders.get(orders.size() - 1).add(new SaladOrder(info, size, pickedExtras));
+                    pickedExtras = Util.stringListToFood(info.getExtras(), Arrays.asList(extrasRaw.split("\\W+")));
+                    orders.get(orders.size() - 1).add(new Order(new Salad(salad, pickedExtras), new Worker(5, "bruh")));
                     break;
                 default:
                     editing = false;
