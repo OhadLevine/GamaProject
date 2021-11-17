@@ -4,8 +4,8 @@ import java.util.List;
 public class Salad extends GenericMeal {
     private List<Food> pickedExtras;
     private Food salad;
-    private boolean valid;
     private int cost;
+    private boolean valid;
 
     public Salad(Food salad, List<Food> pickedExtras) {
         super(pickedExtras, salad);
